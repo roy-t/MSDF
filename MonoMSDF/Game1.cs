@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FontExtension;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -9,13 +10,14 @@ namespace MonoMSDF
     /// </summary>
     public class Game1 : Game
     {
-        GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
+        private GraphicsDeviceManager graphics;
+        private SpriteBatch spriteBatch;
+        private FieldFont font;
 
         public Game1()
         {
-            graphics = new GraphicsDeviceManager(this);
-            Content.RootDirectory = "Content";
+            this.graphics = new GraphicsDeviceManager(this);
+            this.Content.RootDirectory = "Content";
         }
 
         /// <summary>
@@ -38,7 +40,8 @@ namespace MonoMSDF
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
-            spriteBatch = new SpriteBatch(GraphicsDevice);
+            this.spriteBatch = new SpriteBatch(this.GraphicsDevice);
+            this.font = Content.Load<FieldFont>("arial");
 
             // TODO: use this.Content to load your game content here
         }
@@ -73,7 +76,7 @@ namespace MonoMSDF
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            this.GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
 

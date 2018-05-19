@@ -5,11 +5,17 @@
 /intermediateDir:obj/$(Platform)
 /platform:Windows
 /config:
-/profile:Reach
+/profile:HiDef
 /compress:False
 
 #-------------------------------- References --------------------------------#
 
+/reference:..\..\FontExtension\bin\Debug\FontExtension.dll
 
 #---------------------------------- Content ---------------------------------#
+
+#begin arial.ini
+/importer:FieldFontImporter
+/processor:FieldFontProcessor
+/build:arial.ini
 
