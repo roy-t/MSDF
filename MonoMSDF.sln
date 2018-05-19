@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2037
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonoMSDF", "MonoMSDF\MonoMSDF.csproj", "{9860181B-EFE7-48F1-AC6C-4CD9C855F1E4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9860181B-EFE7-48F1-AC6C-4CD9C855F1E4}.Debug|x86.ActiveCfg = Debug|x86
+		{9860181B-EFE7-48F1-AC6C-4CD9C855F1E4}.Debug|x86.Build.0 = Debug|x86
+		{9860181B-EFE7-48F1-AC6C-4CD9C855F1E4}.Release|x86.ActiveCfg = Release|x86
+		{9860181B-EFE7-48F1-AC6C-4CD9C855F1E4}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F28C2187-0713-4D2B-97F3-246A413D203C}
+	EndGlobalSection
+EndGlobal
