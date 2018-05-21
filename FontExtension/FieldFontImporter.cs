@@ -19,7 +19,6 @@ namespace FontExtension
 
             var fontSection = data.Sections["font"];
             var path = fontSection["path"];
-            var size = int.Parse(fontSection["size"]);
 
             var characterSection = data.Sections["characters"];
             var min = int.Parse(characterSection["min"]);
@@ -30,7 +29,7 @@ namespace FontExtension
                 .Select(i => (char) i)
                 .ToArray();
 
-            return new FontDescription(path, size, characters);
+            return new FontDescription(path, characters);
         }
     }
 

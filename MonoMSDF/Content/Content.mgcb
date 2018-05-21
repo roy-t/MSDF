@@ -17,5 +17,14 @@
 #begin arial.ini
 /importer:FieldFontImporter
 /processor:FieldFontProcessor
+/processorParam:ExternalPath=msdfgen.exe
+/processorParam:Resolution=64
+/processorParam:Range=4
 /build:arial.ini
+
+#begin FieldFontEffect.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/processorParam:DebugMode=Auto
+/build:FieldFontEffect.fx
 

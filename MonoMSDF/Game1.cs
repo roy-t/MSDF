@@ -1,4 +1,8 @@
-﻿using FontExtension;
+﻿using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using FontExtension;
+using Kaitai;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -12,73 +16,158 @@ namespace MonoMSDF
     {
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
+
+        private Quad quad;
+        private Effect effect;
         private FieldFont font;
+        private List<FieldGlyph> glyphs;
+        private List<Texture2D> textures;
+
+        private float scale = 10.0f;
+
+        private bool canInput;
+        
 
         public Game1()
         {
-            this.graphics = new GraphicsDeviceManager(this);
+            this.graphics = new GraphicsDeviceManager(this)
+            {
+                PreferredBackBufferWidth = 1080,
+                PreferredBackBufferHeight = 768,
+                SynchronizeWithVerticalRetrace = false,
+                GraphicsProfile = GraphicsProfile.HiDef
+            };
+
             this.Content.RootDirectory = "Content";
-        }
+        }      
 
-        /// <summary>
-        /// Allows the game to perform any initialization it needs to before starting to run.
-        /// This is where it can query for any required services and load any non-graphic
-        /// related content.  Calling base.Initialize will enumerate through any components
-        /// and initialize them as well.
-        /// </summary>
-        protected override void Initialize()
-        {
-            // TODO: Add your initialization logic here
-
-            base.Initialize();
-        }
-
-        /// <summary>
-        /// LoadContent will be called once per game and is the place to load
-        /// all of your content.
-        /// </summary>
         protected override void LoadContent()
         {
-            // Create a new SpriteBatch, which can be used to draw textures.
             this.spriteBatch = new SpriteBatch(this.GraphicsDevice);
-            this.font = Content.Load<FieldFont>("arial");
+            this.quad = new Quad();
 
-            // TODO: use this.Content to load your game content here
-        }
+            this.effect = this.Content.Load<Effect>("FieldFontEffect");
+            this.font = this.Content.Load<FieldFont>("arial");
 
-        /// <summary>
-        /// UnloadContent will be called once per game and is the place to unload
-        /// game-specific content.
-        /// </summary>
-        protected override void UnloadContent()
+            this.glyphs = new List<FieldGlyph>();
+            this.textures = new List<Texture2D>();
+            
+            PrepareGlyph('A');
+       }
+
+        private void PrepareGlyph(char c)
         {
-            // TODO: Unload any non ContentManager content here
+            // TODO: instead of reading it, use setdata (but then we need to have stripped the bitmap headers in the processor
+            var glyph = this.font.GetGlyph(c);
+            using (var stream = new MemoryStream(glyph.Bitmap))
+            {
+                var texture = Texture2D.FromStream(this.GraphicsDevice, stream);
+
+                this.glyphs.Add(glyph);
+                this.textures.Add(texture);
+            }            
         }
 
-        /// <summary>
-        /// Allows the game to run logic such as updating the world,
-        /// checking for collisions, gathering input, and playing audio.
-        /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            // TODO: Add your update logic here
+            var mouseState = Mouse.GetState();
+            this.scale = mouseState.ScrollWheelValue * 0.005f + 1.0f;
+
+            var keyState = Keyboard.GetState();
+
+            var pressed = keyState.GetPressedKeys();
+            if (pressed.Any() && this.canInput)
+            {
+                var key = pressed.First();
+                var c = (char) key;
+                if (char.IsLetterOrDigit(c))
+                {
+                    if (keyState.IsKeyDown(Keys.LeftShift))
+                    {
+                        PrepareGlyph(c);
+                    }
+                    else
+                    {
+                        PrepareGlyph(char.ToLower(c));
+                    }
+                }
+
+                if (this.glyphs.Any() && keyState.IsKeyDown(Keys.Back))
+                {
+                    this.glyphs.RemoveAt(this.glyphs.Count - 1);
+                    this.textures.RemoveAt(this.textures.Count - 1);
+                }
+            }
+
+            this.canInput = (pressed.Length == 1 && pressed.Contains(Keys.LeftShift)) || !pressed.Any();
 
             base.Update(gameTime);
         }
 
-        /// <summary>
-        /// This is called when the game should draw itself.
-        /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
             this.GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
+            this.GraphicsDevice.BlendState = BlendState.AlphaBlend;
+            this.GraphicsDevice.DepthStencilState = DepthStencilState.Default;
+            this.GraphicsDevice.RasterizerState = RasterizerState.CullCounterClockwise;
+
+            var viewport = this.GraphicsDevice.Viewport;
+
+
+            var pen = new Vector2(-viewport.Width / 2.0f, 0);
+            for (var i = 0; i < this.glyphs.Count; i++)
+            {
+                var glyph = this.glyphs[i];
+                var texture = this.textures[i];
+                
+                var world = Matrix.Identity; // Matrix.CreateScale(this.scale / glyph.Metrics.Scale)
+                            //* Matrix.CreateTranslation(new Vector3(pen, 0));
+                            //* Matrix.CreateTranslation(new Vector3(t, 0));
+                var view = Matrix.CreateLookAt(Vector3.Zero, Vector3.Forward, Vector3.Up);
+                var projection = Matrix.CreateOrthographic(viewport.Width, viewport.Height, 0.0f, 1.0f);
+
+                var wvp = world * view * projection;
+
+                this.effect.Parameters["WorldViewProjection"].SetValue(wvp);
+                this.effect.Parameters["PxRange"].SetValue(this.font.PxRange);
+                this.effect.Parameters["TextureSize"].SetValue(new Vector2(texture.Width, texture.Height));
+                this.effect.Parameters["ForegroundColor"].SetValue(Color.White.ToVector4());
+                this.effect.Parameters["GlyphTexture"].SetValue(texture);
+
+                this.effect.CurrentTechnique.Passes[0].Apply();
+                
+                var height = texture.Height * (this.scale / glyph.Metrics.Scale);
+                var width = texture.Width * (this.scale / glyph.Metrics.Scale);
+
+                var left = pen.X - glyph.Metrics.Translation.X * this.scale;
+                var bottom = pen.Y - glyph.Metrics.Translation.Y * this.scale;
+
+                var right = left + width;
+                var top = bottom + height;
+                
+                               
+                this.quad.Render(this.GraphicsDevice, new Vector2(left, bottom), new Vector2(right, top));
+
+
+                pen.X += glyph.Metrics.Advance * this.scale;
+                if (i < this.glyphs.Count - 1)
+                {
+                    var next = this.glyphs[i + 1];
+
+                    var kern = this.font.KerningPairs.FirstOrDefault(
+                        x => x.Left == glyph.Character && x.Right == next.Character);
+                    if (kern != null)
+                    {
+                        // TODO: this should be come the precomputed advance, not the original ttf one!
+                        // So for now it doesn't work!
+                        //pen.X += (kern.Advance * this.scale);
+                    }
+                }                
+            }
 
             base.Draw(gameTime);
         }

@@ -5,15 +5,13 @@ namespace FontExtension
 {
     public class FontDescription
     {
-        public FontDescription(string path, int size, params char[] characters)
+        public FontDescription(string path, params char[] characters)
         {
-            this.Path = path;
-            this.Size = size;
+            this.Path = path;            
             this.Characters = characters.ToList().AsReadOnly();
         }
 
-        public string Path { get; }
-        public int Size { get; }
+        public string Path { get; }        
         public IReadOnlyList<char> Characters { get; }
     }
 }

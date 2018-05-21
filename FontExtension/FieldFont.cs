@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Xna.Framework.Content;
 
 namespace FontExtension
@@ -7,14 +8,19 @@ namespace FontExtension
     public class FieldFont
     {
         [ContentSerializer] private readonly Dictionary<char, FieldGlyph> Glyphs;
+        [ContentSerializer] private readonly string NameBackend;
+        [ContentSerializer] private readonly float PxRangeBackend;
+        [ContentSerializer] private readonly List<KerningPair> KerningPairsBackend;
 
         public FieldFont()
         {            
         }
 
-        public FieldFont(string name, IReadOnlyCollection<FieldGlyph> glyphs)
+        public FieldFont(string name, IReadOnlyCollection<FieldGlyph> glyphs, IReadOnlyCollection<KerningPair> kerningPairs, float pxRange)
         {
-            this.Name = name;
+            this.NameBackend = name;
+            this.PxRangeBackend = pxRange;
+            this.KerningPairsBackend = kerningPairs.ToList();
 
             this.Glyphs = new Dictionary<char, FieldGlyph>(glyphs.Count);
             foreach (var glyph in glyphs)
@@ -23,8 +29,9 @@ namespace FontExtension
             }
         }
 
-        [ContentSerializer]
-        public string Name { get; protected set; }
+        public string Name => this.NameBackend;
+        public float PxRange => this.PxRangeBackend;
+        public IReadOnlyList<KerningPair> KerningPairs => this.KerningPairsBackend;
 
         [ContentSerializerIgnore]
         public IEnumerable<char> SupportedCharacters => this.Glyphs.Keys;
