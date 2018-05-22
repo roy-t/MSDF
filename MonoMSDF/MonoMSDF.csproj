@@ -58,10 +58,13 @@
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
-    <None Include="app.config" />
     <None Include="app.manifest" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FontAnalyzer\FontAnalyzer.csproj">
+      <Project>{e63a4772-4160-4e25-b626-f7c8e3aa7c64}</Project>
+      <Name>FontAnalyzer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FontExtension\FontExtension.csproj">
       <Project>{ebf08dc7-916d-4133-bade-38c31e29f18a}</Project>
       <Name>FontExtension</Name>

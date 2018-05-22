@@ -50,8 +50,8 @@ namespace MonoMSDF
             this.font = this.Content.Load<FieldFont>("arial");
 
             this.glyphs = new List<FieldGlyph>();
-            this.textures = new List<Texture2D>();
-            
+            this.textures = new List<Texture2D>();           
+
             PrepareGlyph('A');
        }
 
@@ -154,18 +154,13 @@ namespace MonoMSDF
 
 
                 pen.X += glyph.Metrics.Advance * this.scale;
-                if (i < this.glyphs.Count - 1)
+                if (i < this.glyphs.Count - 1 && Keyboard.GetState().IsKeyDown(Keys.Tab))
                 {
                     var next = this.glyphs[i + 1];
 
-                    var kern = this.font.KerningPairs.FirstOrDefault(
-                        x => x.Left == glyph.Character && x.Right == next.Character);
-                    if (kern != null)
-                    {
-                        // TODO: this should be come the precomputed advance, not the original ttf one!
-                        // So for now it doesn't work!
-                        //pen.X += (kern.Advance * this.scale);
-                    }
+                    var kern = FontAnalyzer.Analyzer.Do(this.font.Name, glyph.Character, next.Character);
+
+                    pen.X += kern * this.scale;
                 }                
             }
 
