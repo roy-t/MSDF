@@ -6,10 +6,13 @@ using FontAnalyzer.TrueType.Kern;
 
 namespace FontAnalyzer
 {
-    public static class KerningCalculator
+    public class KerningCalculator
     {
-        public static float GetKerning(string fontPath, char left, char right)
-        {           
+        private readonly Cmap cmapTable;
+        private readonly Kern kernTable;
+
+        public KerningCalculator(string fontPath)
+        {
             var ttf = Ttf.FromFile(fontPath);
 
             var cmapDir = ttf.DirectoryTable.First(x => string.Equals(
@@ -17,32 +20,37 @@ namespace FontAnalyzer
                 "cmap",
                 StringComparison.InvariantCultureIgnoreCase));
 
-            var cmapTable = (Cmap) cmapDir.Value;
+            // Every font has a cmap table, or there is something very seriously wrong
+            this.cmapTable = (Cmap)cmapDir.Value;
 
             var kernDir = ttf.DirectoryTable.First(x => string.Equals(
                 x.Tag,
                 "kern",
                 StringComparison.InvariantCultureIgnoreCase));
 
-            var kernTable = (Kern) kernDir.Value;
+            // But some fonts might not have kerning information, for example: fixed width fonts
+            if (kernDir.Value != null)
+            {
+                this.kernTable = (Kern)kernDir.Value;
+            }            
+        }
 
-            var leftCode = GetGlyphId(cmapTable, left);
-            var rightCode = GetGlyphId(cmapTable, right);
+        public float GetKerning(char left, char right)
+        {                     
+            var leftCode = GetGlyphId(left);
+            var rightCode = GetGlyphId(right);
 
             if (leftCode != 0 && rightCode != 0)
             {
-                var kerning = GetKerningPair(kernTable, leftCode, rightCode);         
-                
-                // Divided by 64.0f because that is what MSDFGEN does so the advance and kerning are in the same unit
-                return kerning / 64.0f;
+                return GetKerning(leftCode, rightCode);
             }
 
             return 0.0f;
         }
 
-        private static int GetKerningPair(Kern kernTable, int leftCode, int rightCode)
+        private int GetKerning(int leftCode, int rightCode)
         {
-            foreach (var subTable in kernTable.Subtables)
+            foreach (var subTable in this.kernTable.Subtables)
             {
                 if (subTable.IsHorizontal)
                 {
@@ -58,10 +66,10 @@ namespace FontAnalyzer
             return 0;
         }      
 
-        private static ushort GetGlyphId(Cmap cmapTable, char c)
+        private ushort GetGlyphId(char c)
         {
             var charCode = (uint)c;
-            foreach (var subTable in cmapTable.Tables)
+            foreach (var subTable in this.cmapTable.Tables)
             {
                 // Prefer subTable.PlatformId == PlatformIds.Windows?
                 //https://docs.microsoft.com/en-us/typography/opentype/spec/cmap

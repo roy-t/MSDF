@@ -124,9 +124,7 @@ namespace MonoMSDF
                 var glyph = this.glyphs[i];
                 var texture = this.textures[i];
                 
-                var world = Matrix.Identity; // Matrix.CreateScale(this.scale / glyph.Metrics.Scale)
-                            //* Matrix.CreateTranslation(new Vector3(pen, 0));
-                            //* Matrix.CreateTranslation(new Vector3(t, 0));
+                var world = Matrix.Identity; 
                 var view = Matrix.CreateLookAt(Vector3.Zero, Vector3.Forward, Vector3.Up);
                 var projection = Matrix.CreateOrthographic(viewport.Width, viewport.Height, 0.0f, 1.0f);
 
@@ -152,15 +150,21 @@ namespace MonoMSDF
                                
                 this.quad.Render(this.GraphicsDevice, new Vector2(left, bottom), new Vector2(right, top));
 
-
                 pen.X += glyph.Metrics.Advance * this.scale;
+
                 if (i < this.glyphs.Count - 1 && Keyboard.GetState().IsKeyDown(Keys.Tab))
                 {
                     var next = this.glyphs[i + 1];
 
-                    var kern = FontAnalyzer.KerningCalculator.GetKerning(this.font.Name, glyph.Character, next.Character);
+                    var pair = this.font.KerningPairs.FirstOrDefault(
+                        x => x.Left == glyph.Character && x.Right == next.Character);
 
-                    pen.X += kern * this.scale;
+                    if (pair != null)
+                    {
+
+                        pen.X += pair.Advance * this.scale;
+                    }
+                    
                 }                
             }
 

@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using FontAnalyzer;
 using Kaitai;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content.Pipeline;
@@ -52,9 +53,7 @@ namespace FontExtension
                         glyphs[i] = Process(c, input, msdfgen, objPath);                                               
                     });
 
-                var kerning = ReadKerningInformation(input.Path);
-                
-                // TODO: filter unneeded kerning pairs
+                var kerning = ReadKerningInformation(input.Path, input.Characters);                               
                 return new FieldFont(input.Path, glyphs, kerning, this.Range);
             }
 
@@ -130,39 +129,22 @@ namespace FontExtension
             }            
         }
 
-        private static List<KerningPair> ReadKerningInformation(string path)
+        private static List<KerningPair> ReadKerningInformation(string path, IReadOnlyList<char> characters)
         {
-            // TODO:
-            // 1. read the correct subtable, there can be more than one, it should be the horizontal one
-            // maybe there are multiple horizontal ones... if the font has a normal and a bold/italic version in
-            // the same file?? (Seems not, though that might be on a per glyph basis).
-            // 2. Find the glyph ids for the characters since the kerning pairs are glyph ids
-            // See: http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=iws-chapter08
-            // 3. Compute how much pixels the advance is based on the units_per_em (in HEAD subtable)
-            // since the KERN table lists FUNITS, we might be able to do 'HACK' something with finding 
-            // the width of a glyph in funits, then the actual width of it according to msdfgen and then
-            // use that to calculate the conversion to the kerning.
-            // See also: https://docs.microsoft.com/en-us/typography/opentype/spec/ttch01
-            
-
-
             var pairs = new List<KerningPair>();
 
-            var ttf = Ttf.FromFile(path);
+            var kerningCalculator = new KerningCalculator(path);
 
-            var table = ttf.DirectoryTable.FirstOrDefault(
-                x => string.Equals(x.Tag, "KERN", StringComparison.InvariantCultureIgnoreCase));
-
-            var kerningTable = table?.Value as Kern;
-            
-            // TODO: match the subtable to the subtable for the font, if the font contains multiple variations
-            var subTable = kerningTable?.Subtables.FirstOrDefault();
-            if (subTable?.Format0 != null)
+            foreach (var left in characters)
             {
-                foreach (var pair in subTable.Format0.KerningPairs)
+                foreach (var right in characters)
                 {
-                    var kern = new KerningPair((char) pair.Left, (char) pair.Right, pair.Value);
-                    pairs.Add(kern);
+                    var kerning = kerningCalculator.GetKerning(left, right);                    
+                    if (kerning > 0 || kerning < 0)
+                    {
+                        // Scale the kerning the same as MSDFGEN scales the advance
+                        pairs.Add(new KerningPair(left, right, kerning / 64.0f));
+                    }
                 }
             }
 
