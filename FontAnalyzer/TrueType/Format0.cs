@@ -1,6 +1,7 @@
 ﻿// This is a generated file! Please edit source .ksy file and use kaitai-struct-compiler to rebuild
 
 using System.Collections.Generic;
+using FontAnalyzer.TrueType.Kern;
 using Kaitai;
 
 namespace FontAnalyzer.TrueType
@@ -12,7 +13,7 @@ namespace FontAnalyzer.TrueType
             return new Format0(new KaitaiStream(fileName));
         }
 
-        public Format0(KaitaiStream p__io, Kern.Subtable p__parent = null, Ttf p__root = null) : base(p__io)
+        public Format0(KaitaiStream p__io, KernSubtable p__parent = null, Ttf p__root = null) : base(p__io)
         {
             this.m_parent = p__parent;
             this.m_root = p__root;
@@ -54,11 +55,11 @@ namespace FontAnalyzer.TrueType
             private short _value;
             private Ttf m_root;
             private Format0 m_parent;
-            public ushort Left { get { return this._left; } }
-            public ushort Right { get { return this._right; } }
-            public short Value { get { return this._value; } }
-            public Ttf M_Root { get { return this.m_root; } }
-            public Format0 M_Parent { get { return this.m_parent; } }
+            public ushort Left => this._left;
+            public ushort Right => this._right;
+            public short Value => this._value;
+            public Ttf M_Root => this.m_root;
+            public Format0 M_Parent => this.m_parent;
         }
         private ushort _pairCount;
         private ushort _searchRange;
@@ -66,13 +67,13 @@ namespace FontAnalyzer.TrueType
         private ushort _rangeShift;
         private List<KerningPair> _kerningPairs;
         private Ttf m_root;
-        private Kern.Subtable m_parent;
-        public ushort PairCount { get { return this._pairCount; } }
-        public ushort SearchRange { get { return this._searchRange; } }
-        public ushort EntrySelector { get { return this._entrySelector; } }
-        public ushort RangeShift { get { return this._rangeShift; } }
-        public List<KerningPair> KerningPairs { get { return this._kerningPairs; } }
-        public Ttf M_Root { get { return this.m_root; } }
-        public Kern.Subtable M_Parent { get { return this.m_parent; } }
+        private KernSubtable m_parent;
+        public ushort PairCount => this._pairCount;
+        public ushort SearchRange => this._searchRange;
+        public ushort EntrySelector => this._entrySelector;
+        public ushort RangeShift => this._rangeShift;
+        public List<KerningPair> KerningPairs => this._kerningPairs;
+        public Ttf M_Root => this.m_root;
+        public KernSubtable M_Parent => this.m_parent;
     }
 }

@@ -158,7 +158,7 @@ namespace MonoMSDF
                 {
                     var next = this.glyphs[i + 1];
 
-                    var kern = FontAnalyzer.Analyzer.Do(this.font.Name, glyph.Character, next.Character);
+                    var kern = FontAnalyzer.KerningCalculator.GetKerning(this.font.Name, glyph.Character, next.Character);
 
                     pen.X += kern * this.scale;
                 }                

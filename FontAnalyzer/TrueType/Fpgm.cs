@@ -25,8 +25,8 @@ namespace FontAnalyzer.TrueType
         private byte[] _instructions;
         private Ttf m_root;
         private DirTableEntry m_parent;
-        public byte[] Instructions { get { return this._instructions; } }
-        public Ttf M_Root { get { return this.m_root; } }
-        public DirTableEntry M_Parent { get { return this.m_parent; } }
+        public byte[] Instructions => this._instructions;
+        public Ttf M_Root => this.m_root;
+        public DirTableEntry M_Parent => this.m_parent;
     }
 }

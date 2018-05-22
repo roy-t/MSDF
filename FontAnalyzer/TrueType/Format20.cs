@@ -64,20 +64,20 @@ namespace FontAnalyzer.TrueType
             private string _value;
             private Ttf m_root;
             private Format20 m_parent;
-            public byte Length { get { return this._length; } }
-            public string Value { get { return this._value; } }
-            public Ttf M_Root { get { return this.m_root; } }
-            public Format20 M_Parent { get { return this.m_parent; } }
+            public byte Length => this._length;
+            public string Value => this._value;
+            public Ttf M_Root => this.m_root;
+            public Format20 M_Parent => this.m_parent;
         }
         private ushort _numberOfGlyphs;
         private List<ushort> _glyphNameIndex;
         private List<PascalString> _glyphNames;
         private Ttf m_root;
         private Post m_parent;
-        public ushort NumberOfGlyphs { get { return this._numberOfGlyphs; } }
-        public List<ushort> GlyphNameIndex { get { return this._glyphNameIndex; } }
-        public List<PascalString> GlyphNames { get { return this._glyphNames; } }
-        public Ttf M_Root { get { return this.m_root; } }
-        public Post M_Parent { get { return this.m_parent; } }
+        public ushort NumberOfGlyphs => this._numberOfGlyphs;
+        public List<ushort> GlyphNameIndex => this._glyphNameIndex;
+        public List<PascalString> GlyphNames => this._glyphNames;
+        public Ttf M_Root => this.m_root;
+        public Post M_Parent => this.m_parent;
     }
 }

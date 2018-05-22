@@ -95,43 +95,43 @@ namespace FontAnalyzer.TrueType
         private ulong _reservedForOem;
         private Ttf m_root;
         private Os2 m_parent;
-        public bool SymbolCharacterSet { get { return this._symbolCharacterSet; } }
-        public bool OemCharacterSet { get { return this._oemCharacterSet; } }
-        public bool MacintoshCharacterSet { get { return this._macintoshCharacterSet; } }
-        public ulong ReservedForAlternateAnsiOem { get { return this._reservedForAlternateAnsiOem; } }
-        public bool Cp1361KoreanJohab { get { return this._cp1361KoreanJohab; } }
-        public bool Cp950ChineseTraditionalCharsTaiwanAndHongKong { get { return this._cp950ChineseTraditionalCharsTaiwanAndHongKong; } }
-        public bool Cp949KoreanWansung { get { return this._cp949KoreanWansung; } }
-        public bool Cp936ChineseSimplifiedCharsPrcAndSingapore { get { return this._cp936ChineseSimplifiedCharsPrcAndSingapore; } }
-        public bool Cp932JisJapan { get { return this._cp932JisJapan; } }
-        public bool Cp874Thai { get { return this._cp874Thai; } }
-        public ulong ReservedForAlternateAnsi { get { return this._reservedForAlternateAnsi; } }
-        public bool Cp1257WindowsBaltic { get { return this._cp1257WindowsBaltic; } }
-        public bool Cp1256Arabic { get { return this._cp1256Arabic; } }
-        public bool Cp1255Hebrew { get { return this._cp1255Hebrew; } }
-        public bool Cp1254Turkish { get { return this._cp1254Turkish; } }
-        public bool Cp1253Greek { get { return this._cp1253Greek; } }
-        public bool Cp1251Cyrillic { get { return this._cp1251Cyrillic; } }
-        public bool Cp1250Latin2EasternEurope { get { return this._cp1250Latin2EasternEurope; } }
-        public bool Cp1252Latin1 { get { return this._cp1252Latin1; } }
-        public bool Cp437Us { get { return this._cp437Us; } }
-        public bool Cp850WeLatin1 { get { return this._cp850WeLatin1; } }
-        public bool Cp708ArabicAsmo708 { get { return this._cp708ArabicAsmo708; } }
-        public bool Cp737GreekFormer437G { get { return this._cp737GreekFormer437G; } }
-        public bool Cp775MsDosBaltic { get { return this._cp775MsDosBaltic; } }
-        public bool Cp852Latin2 { get { return this._cp852Latin2; } }
-        public bool Cp855IbmCyrillicPrimarilyRussian { get { return this._cp855IbmCyrillicPrimarilyRussian; } }
-        public bool Cp857IbmTurkish { get { return this._cp857IbmTurkish; } }
-        public bool Cp860MsDosPortuguese { get { return this._cp860MsDosPortuguese; } }
-        public bool Cp861MsDosIcelandic { get { return this._cp861MsDosIcelandic; } }
-        public bool Cp862Hebrew { get { return this._cp862Hebrew; } }
-        public bool Cp863MsDosCanadianFrench { get { return this._cp863MsDosCanadianFrench; } }
-        public bool Cp864Arabic { get { return this._cp864Arabic; } }
-        public bool Cp865MsDosNordic { get { return this._cp865MsDosNordic; } }
-        public bool Cp866MsDosRussian { get { return this._cp866MsDosRussian; } }
-        public bool Cp869IbmGreek { get { return this._cp869IbmGreek; } }
-        public ulong ReservedForOem { get { return this._reservedForOem; } }
-        public Ttf M_Root { get { return this.m_root; } }
-        public Os2 M_Parent { get { return this.m_parent; } }
+        public bool SymbolCharacterSet => this._symbolCharacterSet;
+        public bool OemCharacterSet => this._oemCharacterSet;
+        public bool MacintoshCharacterSet => this._macintoshCharacterSet;
+        public ulong ReservedForAlternateAnsiOem => this._reservedForAlternateAnsiOem;
+        public bool Cp1361KoreanJohab => this._cp1361KoreanJohab;
+        public bool Cp950ChineseTraditionalCharsTaiwanAndHongKong => this._cp950ChineseTraditionalCharsTaiwanAndHongKong;
+        public bool Cp949KoreanWansung => this._cp949KoreanWansung;
+        public bool Cp936ChineseSimplifiedCharsPrcAndSingapore => this._cp936ChineseSimplifiedCharsPrcAndSingapore;
+        public bool Cp932JisJapan => this._cp932JisJapan;
+        public bool Cp874Thai => this._cp874Thai;
+        public ulong ReservedForAlternateAnsi => this._reservedForAlternateAnsi;
+        public bool Cp1257WindowsBaltic => this._cp1257WindowsBaltic;
+        public bool Cp1256Arabic => this._cp1256Arabic;
+        public bool Cp1255Hebrew => this._cp1255Hebrew;
+        public bool Cp1254Turkish => this._cp1254Turkish;
+        public bool Cp1253Greek => this._cp1253Greek;
+        public bool Cp1251Cyrillic => this._cp1251Cyrillic;
+        public bool Cp1250Latin2EasternEurope => this._cp1250Latin2EasternEurope;
+        public bool Cp1252Latin1 => this._cp1252Latin1;
+        public bool Cp437Us => this._cp437Us;
+        public bool Cp850WeLatin1 => this._cp850WeLatin1;
+        public bool Cp708ArabicAsmo708 => this._cp708ArabicAsmo708;
+        public bool Cp737GreekFormer437G => this._cp737GreekFormer437G;
+        public bool Cp775MsDosBaltic => this._cp775MsDosBaltic;
+        public bool Cp852Latin2 => this._cp852Latin2;
+        public bool Cp855IbmCyrillicPrimarilyRussian => this._cp855IbmCyrillicPrimarilyRussian;
+        public bool Cp857IbmTurkish => this._cp857IbmTurkish;
+        public bool Cp860MsDosPortuguese => this._cp860MsDosPortuguese;
+        public bool Cp861MsDosIcelandic => this._cp861MsDosIcelandic;
+        public bool Cp862Hebrew => this._cp862Hebrew;
+        public bool Cp863MsDosCanadianFrench => this._cp863MsDosCanadianFrench;
+        public bool Cp864Arabic => this._cp864Arabic;
+        public bool Cp865MsDosNordic => this._cp865MsDosNordic;
+        public bool Cp866MsDosRussian => this._cp866MsDosRussian;
+        public bool Cp869IbmGreek => this._cp869IbmGreek;
+        public ulong ReservedForOem => this._reservedForOem;
+        public Ttf M_Root => this.m_root;
+        public Os2 M_Parent => this.m_parent;
     }
 }

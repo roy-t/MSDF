@@ -34,9 +34,9 @@ namespace FontAnalyzer.TrueType
         private List<DirTableEntry> _directoryTable;
         private Ttf m_root;
         private KaitaiStruct m_parent;
-        public OffsetTable OffsetTable { get { return this._offsetTable; } }
-        public List<DirTableEntry> DirectoryTable { get { return this._directoryTable; } }
-        public Ttf M_Root { get { return this.m_root; } }
-        public KaitaiStruct M_Parent { get { return this.m_parent; } }
+        public OffsetTable OffsetTable => this._offsetTable;
+        public List<DirTableEntry> DirectoryTable => this._directoryTable;
+        public Ttf M_Root => this.m_root;
+        public KaitaiStruct M_Parent => this.m_parent;
     }
 }

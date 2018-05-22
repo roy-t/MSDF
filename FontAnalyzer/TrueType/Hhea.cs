@@ -49,48 +49,49 @@ namespace FontAnalyzer.TrueType
         private ushort _numberOfHmetrics;
         private Ttf m_root;
         private DirTableEntry m_parent;
-        public Fixed Version { get { return this._version; } }
+        public Fixed Version => this._version;
 
         /// <summary>
         /// Typographic ascent
         /// </summary>
-        public short Ascender { get { return this._ascender; } }
+        public short Ascender => this._ascender;
 
         /// <summary>
         /// Typographic descent
         /// </summary>
-        public short Descender { get { return this._descender; } }
+        public short Descender => this._descender;
 
         /// <summary>
         /// Typographic line gap. Negative LineGap values are treated as zero in Windows 3.1, System 6, and System 7.
         /// </summary>
-        public short LineGap { get { return this._lineGap; } }
+        public short LineGap => this._lineGap;
 
         /// <summary>
         /// Maximum advance width value in `hmtx` table.
         /// </summary>
-        public ushort AdvanceWidthMax { get { return this._advanceWidthMax; } }
+        public ushort AdvanceWidthMax => this._advanceWidthMax;
 
         /// <summary>
         /// Minimum left sidebearing value in `hmtx` table.
         /// </summary>
-        public short MinLeftSideBearing { get { return this._minLeftSideBearing; } }
+        public short MinLeftSideBearing => this._minLeftSideBearing;
 
         /// <summary>
         /// Minimum right sidebearing value; calculated as Min(aw - lsb - (xMax - xMin)).
         /// </summary>
-        public short MinRightSideBearing { get { return this._minRightSideBearing; } }
+        public short MinRightSideBearing => this._minRightSideBearing;
 
         /// <summary>
         /// Max(lsb + (xMax - xMin)).
         /// </summary>
-        public short XMaxExtend { get { return this._xMaxExtend; } }
-        public short CaretSlopeRise { get { return this._caretSlopeRise; } }
-        public short CaretSlopeRun { get { return this._caretSlopeRun; } }
-        public byte[] Reserved { get { return this._reserved; } }
-        public short MetricDataFormat { get { return this._metricDataFormat; } }
-        public ushort NumberOfHmetrics { get { return this._numberOfHmetrics; } }
-        public Ttf M_Root { get { return this.m_root; } }
-        public DirTableEntry M_Parent { get { return this.m_parent; } }
+        public short XMaxExtend => this._xMaxExtend;
+
+        public short CaretSlopeRise => this._caretSlopeRise;
+        public short CaretSlopeRun => this._caretSlopeRun;
+        public byte[] Reserved => this._reserved;
+        public short MetricDataFormat => this._metricDataFormat;
+        public ushort NumberOfHmetrics => this._numberOfHmetrics;
+        public Ttf M_Root => this.m_root;
+        public DirTableEntry M_Parent => this.m_parent;
     }
 }

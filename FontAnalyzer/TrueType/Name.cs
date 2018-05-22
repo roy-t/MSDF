@@ -139,14 +139,14 @@ namespace FontAnalyzer.TrueType
             private ushort _ofsStr;
             private Ttf m_root;
             private Name m_parent;
-            public Platforms PlatformId { get { return this._platformId; } }
-            public ushort EncodingId { get { return this._encodingId; } }
-            public ushort LanguageId { get { return this._languageId; } }
-            public Names NameId { get { return this._nameId; } }
-            public ushort LenStr { get { return this._lenStr; } }
-            public ushort OfsStr { get { return this._ofsStr; } }
-            public Ttf M_Root { get { return this.m_root; } }
-            public Name M_Parent { get { return this.m_parent; } }
+            public Platforms PlatformId => this._platformId;
+            public ushort EncodingId => this._encodingId;
+            public ushort LanguageId => this._languageId;
+            public Names NameId => this._nameId;
+            public ushort LenStr => this._lenStr;
+            public ushort OfsStr => this._ofsStr;
+            public Ttf M_Root => this.m_root;
+            public Name M_Parent => this.m_parent;
         }
         private ushort _formatSelector;
         private ushort _numNameRecords;
@@ -154,11 +154,11 @@ namespace FontAnalyzer.TrueType
         private List<NameRecord> _nameRecords;
         private Ttf m_root;
         private DirTableEntry m_parent;
-        public ushort FormatSelector { get { return this._formatSelector; } }
-        public ushort NumNameRecords { get { return this._numNameRecords; } }
-        public ushort OfsStrings { get { return this._ofsStrings; } }
-        public List<NameRecord> NameRecords { get { return this._nameRecords; } }
-        public Ttf M_Root { get { return this.m_root; } }
-        public DirTableEntry M_Parent { get { return this.m_parent; } }
+        public ushort FormatSelector => this._formatSelector;
+        public ushort NumNameRecords => this._numNameRecords;
+        public ushort OfsStrings => this._ofsStrings;
+        public List<NameRecord> NameRecords => this._nameRecords;
+        public Ttf M_Root => this.m_root;
+        public DirTableEntry M_Parent => this.m_parent;
     }
 }

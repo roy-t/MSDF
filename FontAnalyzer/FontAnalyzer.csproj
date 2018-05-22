@@ -46,9 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Analyzer.cs" />
+    <Compile Include="KerningCalculator.cs" />
     <Compile Include="TrueType\ArmStyle.cs" />
-    <Compile Include="TrueType\Cmap.cs" />
+    <Compile Include="TrueType\Cmap\ByteEncodingTable.cs" />
+    <Compile Include="TrueType\Cmap\Cmap.cs" />
+    <Compile Include="TrueType\Cmap\CMapSubtable.cs" />
+    <Compile Include="TrueType\Cmap\CMapSubtableHeader.cs" />
+    <Compile Include="TrueType\Cmap\HighByteMappingThroughTable.cs" />
+    <Compile Include="TrueType\Cmap\SegmentMappingToDeltaValues.cs" />
+    <Compile Include="TrueType\Cmap\SubtableFormat.cs" />
+    <Compile Include="TrueType\Cmap\TrimmedTableMapping.cs" />
     <Compile Include="TrueType\CodePageRange.cs" />
     <Compile Include="TrueType\Contrast.cs" />
     <Compile Include="TrueType\Cvt.cs" />
@@ -65,7 +72,8 @@
     <Compile Include="TrueType\Glyf.cs" />
     <Compile Include="TrueType\Head.cs" />
     <Compile Include="TrueType\Hhea.cs" />
-    <Compile Include="TrueType\Kern.cs" />
+    <Compile Include="TrueType\Kern\Kern.cs" />
+    <Compile Include="TrueType\Kern\KernSubtable.cs" />
     <Compile Include="TrueType\LetterForm.cs" />
     <Compile Include="TrueType\Maxp.cs" />
     <Compile Include="TrueType\Midline.cs" />

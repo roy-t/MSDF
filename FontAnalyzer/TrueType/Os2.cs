@@ -90,135 +90,137 @@ namespace FontAnalyzer.TrueType
         /// <summary>
         /// The version number for this OS/2 table.
         /// </summary>
-        public ushort Version { get { return this._version; } }
+        public ushort Version => this._version;
 
         /// <summary>
         /// The Average Character Width parameter specifies the arithmetic average of the escapement (width) of all of the 26 lowercase letters a through z of the Latin alphabet and the space character. If any of the 26 lowercase letters are not present, this parameter should equal the weighted average of all glyphs in the font. For non-UGL (platform 3, encoding 0) fonts, use the unweighted average.
         /// </summary>
-        public short XAvgCharWidth { get { return this._xAvgCharWidth; } }
+        public short XAvgCharWidth => this._xAvgCharWidth;
 
         /// <summary>
         /// Indicates the visual weight (degree of blackness or thickness of strokes) of the characters in the font.
         /// </summary>
-        public WeightClass WeightClass { get { return this._weightClass; } }
+        public WeightClass WeightClass => this._weightClass;
 
         /// <summary>
         /// Indicates a relative change from the normal aspect ratio (width to height ratio) as specified by a font designer for the glyphs in a font.
         /// </summary>
-        public WidthClass WidthClass { get { return this._widthClass; } }
+        public WidthClass WidthClass => this._widthClass;
 
         /// <summary>
         /// Indicates font embedding licensing rights for the font. Embeddable fonts may be stored in a document. When a document with embedded fonts is opened on a system that does not have the font installed (the remote system), the embedded font may be loaded for temporary (and in some cases, permanent) use on that system by an embedding-aware application. Embedding licensing rights are granted by the vendor of the font.
         /// </summary>
-        public FsType FsType { get { return this._fsType; } }
+        public FsType FsType => this._fsType;
 
         /// <summary>
         /// The recommended horizontal size in font design units for subscripts for this font.
         /// </summary>
-        public short YSubscriptXSize { get { return this._ySubscriptXSize; } }
+        public short YSubscriptXSize => this._ySubscriptXSize;
 
         /// <summary>
         /// The recommended vertical size in font design units for subscripts for this font.
         /// </summary>
-        public short YSubscriptYSize { get { return this._ySubscriptYSize; } }
+        public short YSubscriptYSize => this._ySubscriptYSize;
 
         /// <summary>
         /// The recommended horizontal offset in font design untis for subscripts for this font.
         /// </summary>
-        public short YSubscriptXOffset { get { return this._ySubscriptXOffset; } }
+        public short YSubscriptXOffset => this._ySubscriptXOffset;
 
         /// <summary>
         /// The recommended vertical offset in font design units from the baseline for subscripts for this font.
         /// </summary>
-        public short YSubscriptYOffset { get { return this._ySubscriptYOffset; } }
+        public short YSubscriptYOffset => this._ySubscriptYOffset;
 
         /// <summary>
         /// The recommended horizontal size in font design units for superscripts for this font.
         /// </summary>
-        public short YSuperscriptXSize { get { return this._ySuperscriptXSize; } }
+        public short YSuperscriptXSize => this._ySuperscriptXSize;
 
         /// <summary>
         /// The recommended vertical size in font design units for superscripts for this font.
         /// </summary>
-        public short YSuperscriptYSize { get { return this._ySuperscriptYSize; } }
+        public short YSuperscriptYSize => this._ySuperscriptYSize;
 
         /// <summary>
         /// The recommended horizontal offset in font design units for superscripts for this font.
         /// </summary>
-        public short YSuperscriptXOffset { get { return this._ySuperscriptXOffset; } }
+        public short YSuperscriptXOffset => this._ySuperscriptXOffset;
 
         /// <summary>
         /// The recommended vertical offset in font design units from the baseline for superscripts for this font.
         /// </summary>
-        public short YSuperscriptYOffset { get { return this._ySuperscriptYOffset; } }
+        public short YSuperscriptYOffset => this._ySuperscriptYOffset;
 
         /// <summary>
         /// Width of the strikeout stroke in font design units.
         /// </summary>
-        public short YStrikeoutSize { get { return this._yStrikeoutSize; } }
+        public short YStrikeoutSize => this._yStrikeoutSize;
 
         /// <summary>
         /// The position of the strikeout stroke relative to the baseline in font design units.
         /// </summary>
-        public short YStrikeoutPosition { get { return this._yStrikeoutPosition; } }
+        public short YStrikeoutPosition => this._yStrikeoutPosition;
 
         /// <summary>
         /// This parameter is a classification of font-family design.
         /// </summary>
-        public short SFamilyClass { get { return this._sFamilyClass; } }
-        public Panose Panose { get { return this._panose; } }
-        public UnicodeRange UnicodeRange { get { return this._unicodeRange; } }
+        public short SFamilyClass => this._sFamilyClass;
+
+        public Panose Panose => this._panose;
+        public UnicodeRange UnicodeRange => this._unicodeRange;
 
         /// <summary>
         /// The four character identifier for the vendor of the given type face.
         /// </summary>
-        public string AchVendId { get { return this._achVendId; } }
+        public string AchVendId => this._achVendId;
 
         /// <summary>
         /// Contains information concerning the nature of the font patterns
         /// </summary>
-        public FsSelection Selection { get { return this._selection; } }
+        public FsSelection Selection => this._selection;
 
         /// <summary>
         /// The minimum Unicode index (character code) in this font, according to the cmap subtable for platform ID 3 and encoding ID 0 or 1.
         /// </summary>
-        public ushort FirstCharIndex { get { return this._firstCharIndex; } }
+        public ushort FirstCharIndex => this._firstCharIndex;
 
         /// <summary>
         /// The maximum Unicode index (character code) in this font, according to the cmap subtable for platform ID 3 and encoding ID 0 or 1.
         /// </summary>
-        public ushort LastCharIndex { get { return this._lastCharIndex; } }
+        public ushort LastCharIndex => this._lastCharIndex;
 
         /// <summary>
         /// The typographic ascender for this font.
         /// </summary>
-        public short TypoAscender { get { return this._typoAscender; } }
+        public short TypoAscender => this._typoAscender;
 
         /// <summary>
         /// The typographic descender for this font.
         /// </summary>
-        public short TypoDescender { get { return this._typoDescender; } }
+        public short TypoDescender => this._typoDescender;
 
         /// <summary>
         /// The typographic line gap for this font.
         /// </summary>
-        public short TypoLineGap { get { return this._typoLineGap; } }
+        public short TypoLineGap => this._typoLineGap;
 
         /// <summary>
         /// The ascender metric for Windows.
         /// </summary>
-        public ushort WinAscent { get { return this._winAscent; } }
+        public ushort WinAscent => this._winAscent;
 
         /// <summary>
         /// The descender metric for Windows.
         /// </summary>
-        public ushort WinDescent { get { return this._winDescent; } }
+        public ushort WinDescent => this._winDescent;
 
         /// <summary>
         /// This field is used to specify the code pages encompassed by the font file in the `cmap` subtable for platform 3, encoding ID 1 (Microsoft platform).
         /// </summary>
-        public CodePageRange CodePageRange { get { return this._codePageRange; } }
-        public Ttf M_Root { get { return this.m_root; } }
-        public DirTableEntry M_Parent { get { return this.m_parent; } }
+        public CodePageRange CodePageRange => this._codePageRange;
+
+        public Ttf M_Root => this.m_root;
+        public DirTableEntry M_Parent => this.m_parent;
     }
 }

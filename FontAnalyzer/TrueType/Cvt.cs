@@ -36,8 +36,8 @@ namespace FontAnalyzer.TrueType
         private List<short> _fwords;
         private Ttf m_root;
         private DirTableEntry m_parent;
-        public List<short> Fwords { get { return this._fwords; } }
-        public Ttf M_Root { get { return this.m_root; } }
-        public DirTableEntry M_Parent { get { return this.m_parent; } }
+        public List<short> Fwords => this._fwords;
+        public Ttf M_Root => this.m_root;
+        public DirTableEntry M_Parent => this.m_parent;
     }
 }

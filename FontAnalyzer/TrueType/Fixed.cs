@@ -27,9 +27,9 @@ namespace FontAnalyzer.TrueType
         private ushort _minor;
         private Ttf m_root;
         private KaitaiStruct m_parent;
-        public ushort Major { get { return this._major; } }
-        public ushort Minor { get { return this._minor; } }
-        public Ttf M_Root { get { return this.m_root; } }
-        public KaitaiStruct M_Parent { get { return this.m_parent; } }
+        public ushort Major => this._major;
+        public ushort Minor => this._minor;
+        public Ttf M_Root => this.m_root;
+        public KaitaiStruct M_Parent => this.m_parent;
     }
 }

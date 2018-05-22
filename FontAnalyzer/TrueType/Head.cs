@@ -59,24 +59,24 @@ namespace FontAnalyzer.TrueType
         private short _glyphDataFormat;
         private Ttf m_root;
         private DirTableEntry m_parent;
-        public Fixed Version { get { return this._version; } }
-        public Fixed FontRevision { get { return this._fontRevision; } }
-        public uint ChecksumAdjustment { get { return this._checksumAdjustment; } }
-        public byte[] MagicNumber { get { return this._magicNumber; } }
-        public Flags Flags { get { return this._flags; } }
-        public ushort UnitsPerEm { get { return this._unitsPerEm; } }
-        public ulong Created { get { return this._created; } }
-        public ulong Modified { get { return this._modified; } }
-        public short XMin { get { return this._xMin; } }
-        public short YMin { get { return this._yMin; } }
-        public short XMax { get { return this._xMax; } }
-        public short YMax { get { return this._yMax; } }
-        public ushort MacStyle { get { return this._macStyle; } }
-        public ushort LowestRecPpem { get { return this._lowestRecPpem; } }
-        public FontDirectionHint FontDirectionHint { get { return this._fontDirectionHint; } }
-        public short IndexToLocFormat { get { return this._indexToLocFormat; } }
-        public short GlyphDataFormat { get { return this._glyphDataFormat; } }
-        public Ttf M_Root { get { return this.m_root; } }
-        public DirTableEntry M_Parent { get { return this.m_parent; } }
+        public Fixed Version => this._version;
+        public Fixed FontRevision => this._fontRevision;
+        public uint ChecksumAdjustment => this._checksumAdjustment;
+        public byte[] MagicNumber => this._magicNumber;
+        public Flags Flags => this._flags;
+        public ushort UnitsPerEm => this._unitsPerEm;
+        public ulong Created => this._created;
+        public ulong Modified => this._modified;
+        public short XMin => this._xMin;
+        public short YMin => this._yMin;
+        public short XMax => this._xMax;
+        public short YMax => this._yMax;
+        public ushort MacStyle => this._macStyle;
+        public ushort LowestRecPpem => this._lowestRecPpem;
+        public FontDirectionHint FontDirectionHint => this._fontDirectionHint;
+        public short IndexToLocFormat => this._indexToLocFormat;
+        public short GlyphDataFormat => this._glyphDataFormat;
+        public Ttf M_Root => this.m_root;
+        public DirTableEntry M_Parent => this.m_parent;
     }
 }

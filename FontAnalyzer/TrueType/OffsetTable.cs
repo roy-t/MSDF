@@ -33,12 +33,12 @@ namespace FontAnalyzer.TrueType
         private ushort _rangeShift;
         private Ttf m_root;
         private Ttf m_parent;
-        public Fixed SfntVersion { get { return this._sfntVersion; } }
-        public ushort NumTables { get { return this._numTables; } }
-        public ushort SearchRange { get { return this._searchRange; } }
-        public ushort EntrySelector { get { return this._entrySelector; } }
-        public ushort RangeShift { get { return this._rangeShift; } }
-        public Ttf M_Root { get { return this.m_root; } }
-        public Ttf M_Parent { get { return this.m_parent; } }
+        public Fixed SfntVersion => this._sfntVersion;
+        public ushort NumTables => this._numTables;
+        public ushort SearchRange => this._searchRange;
+        public ushort EntrySelector => this._entrySelector;
+        public ushort RangeShift => this._rangeShift;
+        public Ttf M_Root => this.m_root;
+        public Ttf M_Parent => this.m_parent;
     }
 }

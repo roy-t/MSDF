@@ -47,17 +47,17 @@ namespace FontAnalyzer.TrueType
         private Format20 _format20;
         private Ttf m_root;
         private DirTableEntry m_parent;
-        public Fixed Format { get { return this._format; } }
-        public Fixed ItalicAngle { get { return this._italicAngle; } }
-        public short UnderlinePosition { get { return this._underlinePosition; } }
-        public short UnderlineThichness { get { return this._underlineThichness; } }
-        public uint IsFixedPitch { get { return this._isFixedPitch; } }
-        public uint MinMemType42 { get { return this._minMemType42; } }
-        public uint MaxMemType42 { get { return this._maxMemType42; } }
-        public uint MinMemType1 { get { return this._minMemType1; } }
-        public uint MaxMemType1 { get { return this._maxMemType1; } }
-        public Format20 Format20 { get { return this._format20; } }
-        public Ttf M_Root { get { return this.m_root; } }
-        public DirTableEntry M_Parent { get { return this.m_parent; } }
+        public Fixed Format => this._format;
+        public Fixed ItalicAngle => this._italicAngle;
+        public short UnderlinePosition => this._underlinePosition;
+        public short UnderlineThichness => this._underlineThichness;
+        public uint IsFixedPitch => this._isFixedPitch;
+        public uint MinMemType42 => this._minMemType42;
+        public uint MaxMemType42 => this._maxMemType42;
+        public uint MinMemType1 => this._minMemType1;
+        public uint MaxMemType1 => this._maxMemType1;
+        public Format20 Format20 => this._format20;
+        public Ttf M_Root => this.m_root;
+        public DirTableEntry M_Parent => this.m_parent;
     }
 }

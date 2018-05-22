@@ -98,16 +98,16 @@ namespace FontAnalyzer.TrueType
                 private byte? _repeatValue;
                 private Ttf m_root;
                 private SimpleGlyph m_parent;
-                public ulong Reserved { get { return this._reserved; } }
-                public bool YIsSame { get { return this._yIsSame; } }
-                public bool XIsSame { get { return this._xIsSame; } }
-                public bool Repeat { get { return this._repeat; } }
-                public bool YShortVector { get { return this._yShortVector; } }
-                public bool XShortVector { get { return this._xShortVector; } }
-                public bool OnCurve { get { return this._onCurve; } }
-                public byte? RepeatValue { get { return this._repeatValue; } }
-                public Ttf M_Root { get { return this.m_root; } }
-                public SimpleGlyph M_Parent { get { return this.m_parent; } }
+                public ulong Reserved => this._reserved;
+                public bool YIsSame => this._yIsSame;
+                public bool XIsSame => this._xIsSame;
+                public bool Repeat => this._repeat;
+                public bool YShortVector => this._yShortVector;
+                public bool XShortVector => this._xShortVector;
+                public bool OnCurve => this._onCurve;
+                public byte? RepeatValue => this._repeatValue;
+                public Ttf M_Root => this.m_root;
+                public SimpleGlyph M_Parent => this.m_parent;
             }
             private bool f_pointCount;
             private int _pointCount;
@@ -128,12 +128,12 @@ namespace FontAnalyzer.TrueType
             private List<Flag> _flags;
             private Ttf m_root;
             private Glyf m_parent;
-            public List<ushort> EndPtsOfContours { get { return this._endPtsOfContours; } }
-            public ushort InstructionLength { get { return this._instructionLength; } }
-            public byte[] Instructions { get { return this._instructions; } }
-            public List<Flag> Flags { get { return this._flags; } }
-            public Ttf M_Root { get { return this.m_root; } }
-            public Glyf M_Parent { get { return this.m_parent; } }
+            public List<ushort> EndPtsOfContours => this._endPtsOfContours;
+            public ushort InstructionLength => this._instructionLength;
+            public byte[] Instructions => this._instructions;
+            public List<Flag> Flags => this._flags;
+            public Ttf M_Root => this.m_root;
+            public Glyf M_Parent => this.m_parent;
         }
         private short _numberOfContours;
         private short _xMin;
@@ -143,13 +143,13 @@ namespace FontAnalyzer.TrueType
         private SimpleGlyph _value;
         private Ttf m_root;
         private DirTableEntry m_parent;
-        public short NumberOfContours { get { return this._numberOfContours; } }
-        public short XMin { get { return this._xMin; } }
-        public short YMin { get { return this._yMin; } }
-        public short XMax { get { return this._xMax; } }
-        public short YMax { get { return this._yMax; } }
-        public SimpleGlyph Value { get { return this._value; } }
-        public Ttf M_Root { get { return this.m_root; } }
-        public DirTableEntry M_Parent { get { return this.m_parent; } }
+        public short NumberOfContours => this._numberOfContours;
+        public short XMin => this._xMin;
+        public short YMin => this._yMin;
+        public short XMax => this._xMax;
+        public short YMax => this._yMax;
+        public SimpleGlyph Value => this._value;
+        public Ttf M_Root => this.m_root;
+        public DirTableEntry M_Parent => this.m_parent;
     }
 }

@@ -166,78 +166,78 @@ namespace FontAnalyzer.TrueType
         private byte[] _reserved;
         private Ttf m_root;
         private Os2 m_parent;
-        public bool BasicLatin { get { return this._basicLatin; } }
-        public bool Latin1Supplement { get { return this._latin1Supplement; } }
-        public bool LatinExtendedA { get { return this._latinExtendedA; } }
-        public bool LatinExtendedB { get { return this._latinExtendedB; } }
-        public bool IpaExtensions { get { return this._ipaExtensions; } }
-        public bool SpacingModifierLetters { get { return this._spacingModifierLetters; } }
-        public bool CombiningDiacriticalMarks { get { return this._combiningDiacriticalMarks; } }
-        public bool BasicGreek { get { return this._basicGreek; } }
-        public bool GreekSymbolsAndCoptic { get { return this._greekSymbolsAndCoptic; } }
-        public bool Cyrillic { get { return this._cyrillic; } }
-        public bool Armenian { get { return this._armenian; } }
-        public bool BasicHebrew { get { return this._basicHebrew; } }
-        public bool HebrewExtended { get { return this._hebrewExtended; } }
-        public bool BasicArabic { get { return this._basicArabic; } }
-        public bool ArabicExtended { get { return this._arabicExtended; } }
-        public bool Devanagari { get { return this._devanagari; } }
-        public bool Bengali { get { return this._bengali; } }
-        public bool Gurmukhi { get { return this._gurmukhi; } }
-        public bool Gujarati { get { return this._gujarati; } }
-        public bool Oriya { get { return this._oriya; } }
-        public bool Tamil { get { return this._tamil; } }
-        public bool Telugu { get { return this._telugu; } }
-        public bool Kannada { get { return this._kannada; } }
-        public bool Malayalam { get { return this._malayalam; } }
-        public bool Thai { get { return this._thai; } }
-        public bool Lao { get { return this._lao; } }
-        public bool BasicGeorgian { get { return this._basicGeorgian; } }
-        public bool GeorgianExtended { get { return this._georgianExtended; } }
-        public bool HangulJamo { get { return this._hangulJamo; } }
-        public bool LatinExtendedAdditional { get { return this._latinExtendedAdditional; } }
-        public bool GreekExtended { get { return this._greekExtended; } }
-        public bool GeneralPunctuation { get { return this._generalPunctuation; } }
-        public bool SuperscriptsAndSubscripts { get { return this._superscriptsAndSubscripts; } }
-        public bool CurrencySymbols { get { return this._currencySymbols; } }
-        public bool CombiningDiacriticalMarksForSymbols { get { return this._combiningDiacriticalMarksForSymbols; } }
-        public bool LetterlikeSymbols { get { return this._letterlikeSymbols; } }
-        public bool NumberForms { get { return this._numberForms; } }
-        public bool Arrows { get { return this._arrows; } }
-        public bool MathematicalOperators { get { return this._mathematicalOperators; } }
-        public bool MiscellaneousTechnical { get { return this._miscellaneousTechnical; } }
-        public bool ControlPictures { get { return this._controlPictures; } }
-        public bool OpticalCharacterRecognition { get { return this._opticalCharacterRecognition; } }
-        public bool EnclosedAlphanumerics { get { return this._enclosedAlphanumerics; } }
-        public bool BoxDrawing { get { return this._boxDrawing; } }
-        public bool BlockElements { get { return this._blockElements; } }
-        public bool GeometricShapes { get { return this._geometricShapes; } }
-        public bool MiscellaneousSymbols { get { return this._miscellaneousSymbols; } }
-        public bool Dingbats { get { return this._dingbats; } }
-        public bool CjkSymbolsAndPunctuation { get { return this._cjkSymbolsAndPunctuation; } }
-        public bool Hiragana { get { return this._hiragana; } }
-        public bool Katakana { get { return this._katakana; } }
-        public bool Bopomofo { get { return this._bopomofo; } }
-        public bool HangulCompatibilityJamo { get { return this._hangulCompatibilityJamo; } }
-        public bool CjkMiscellaneous { get { return this._cjkMiscellaneous; } }
-        public bool EnclosedCjkLettersAndMonths { get { return this._enclosedCjkLettersAndMonths; } }
-        public bool CjkCompatibility { get { return this._cjkCompatibility; } }
-        public bool Hangul { get { return this._hangul; } }
-        public bool ReservedForUnicodeSubranges1 { get { return this._reservedForUnicodeSubranges1; } }
-        public bool ReservedForUnicodeSubranges2 { get { return this._reservedForUnicodeSubranges2; } }
-        public bool CjkUnifiedIdeographs { get { return this._cjkUnifiedIdeographs; } }
-        public bool PrivateUseArea { get { return this._privateUseArea; } }
-        public bool CjkCompatibilityIdeographs { get { return this._cjkCompatibilityIdeographs; } }
-        public bool AlphabeticPresentationForms { get { return this._alphabeticPresentationForms; } }
-        public bool ArabicPresentationFormsA { get { return this._arabicPresentationFormsA; } }
-        public bool CombiningHalfMarks { get { return this._combiningHalfMarks; } }
-        public bool CjkCompatibilityForms { get { return this._cjkCompatibilityForms; } }
-        public bool SmallFormVariants { get { return this._smallFormVariants; } }
-        public bool ArabicPresentationFormsB { get { return this._arabicPresentationFormsB; } }
-        public bool HalfwidthAndFullwidthForms { get { return this._halfwidthAndFullwidthForms; } }
-        public bool Specials { get { return this._specials; } }
-        public byte[] Reserved { get { return this._reserved; } }
-        public Ttf M_Root { get { return this.m_root; } }
-        public Os2 M_Parent { get { return this.m_parent; } }
+        public bool BasicLatin => this._basicLatin;
+        public bool Latin1Supplement => this._latin1Supplement;
+        public bool LatinExtendedA => this._latinExtendedA;
+        public bool LatinExtendedB => this._latinExtendedB;
+        public bool IpaExtensions => this._ipaExtensions;
+        public bool SpacingModifierLetters => this._spacingModifierLetters;
+        public bool CombiningDiacriticalMarks => this._combiningDiacriticalMarks;
+        public bool BasicGreek => this._basicGreek;
+        public bool GreekSymbolsAndCoptic => this._greekSymbolsAndCoptic;
+        public bool Cyrillic => this._cyrillic;
+        public bool Armenian => this._armenian;
+        public bool BasicHebrew => this._basicHebrew;
+        public bool HebrewExtended => this._hebrewExtended;
+        public bool BasicArabic => this._basicArabic;
+        public bool ArabicExtended => this._arabicExtended;
+        public bool Devanagari => this._devanagari;
+        public bool Bengali => this._bengali;
+        public bool Gurmukhi => this._gurmukhi;
+        public bool Gujarati => this._gujarati;
+        public bool Oriya => this._oriya;
+        public bool Tamil => this._tamil;
+        public bool Telugu => this._telugu;
+        public bool Kannada => this._kannada;
+        public bool Malayalam => this._malayalam;
+        public bool Thai => this._thai;
+        public bool Lao => this._lao;
+        public bool BasicGeorgian => this._basicGeorgian;
+        public bool GeorgianExtended => this._georgianExtended;
+        public bool HangulJamo => this._hangulJamo;
+        public bool LatinExtendedAdditional => this._latinExtendedAdditional;
+        public bool GreekExtended => this._greekExtended;
+        public bool GeneralPunctuation => this._generalPunctuation;
+        public bool SuperscriptsAndSubscripts => this._superscriptsAndSubscripts;
+        public bool CurrencySymbols => this._currencySymbols;
+        public bool CombiningDiacriticalMarksForSymbols => this._combiningDiacriticalMarksForSymbols;
+        public bool LetterlikeSymbols => this._letterlikeSymbols;
+        public bool NumberForms => this._numberForms;
+        public bool Arrows => this._arrows;
+        public bool MathematicalOperators => this._mathematicalOperators;
+        public bool MiscellaneousTechnical => this._miscellaneousTechnical;
+        public bool ControlPictures => this._controlPictures;
+        public bool OpticalCharacterRecognition => this._opticalCharacterRecognition;
+        public bool EnclosedAlphanumerics => this._enclosedAlphanumerics;
+        public bool BoxDrawing => this._boxDrawing;
+        public bool BlockElements => this._blockElements;
+        public bool GeometricShapes => this._geometricShapes;
+        public bool MiscellaneousSymbols => this._miscellaneousSymbols;
+        public bool Dingbats => this._dingbats;
+        public bool CjkSymbolsAndPunctuation => this._cjkSymbolsAndPunctuation;
+        public bool Hiragana => this._hiragana;
+        public bool Katakana => this._katakana;
+        public bool Bopomofo => this._bopomofo;
+        public bool HangulCompatibilityJamo => this._hangulCompatibilityJamo;
+        public bool CjkMiscellaneous => this._cjkMiscellaneous;
+        public bool EnclosedCjkLettersAndMonths => this._enclosedCjkLettersAndMonths;
+        public bool CjkCompatibility => this._cjkCompatibility;
+        public bool Hangul => this._hangul;
+        public bool ReservedForUnicodeSubranges1 => this._reservedForUnicodeSubranges1;
+        public bool ReservedForUnicodeSubranges2 => this._reservedForUnicodeSubranges2;
+        public bool CjkUnifiedIdeographs => this._cjkUnifiedIdeographs;
+        public bool PrivateUseArea => this._privateUseArea;
+        public bool CjkCompatibilityIdeographs => this._cjkCompatibilityIdeographs;
+        public bool AlphabeticPresentationForms => this._alphabeticPresentationForms;
+        public bool ArabicPresentationFormsA => this._arabicPresentationFormsA;
+        public bool CombiningHalfMarks => this._combiningHalfMarks;
+        public bool CjkCompatibilityForms => this._cjkCompatibilityForms;
+        public bool SmallFormVariants => this._smallFormVariants;
+        public bool ArabicPresentationFormsB => this._arabicPresentationFormsB;
+        public bool HalfwidthAndFullwidthForms => this._halfwidthAndFullwidthForms;
+        public bool Specials => this._specials;
+        public byte[] Reserved => this._reserved;
+        public Ttf M_Root => this.m_root;
+        public Os2 M_Parent => this.m_parent;
     }
 }

@@ -45,17 +45,17 @@ namespace FontAnalyzer.TrueType
         private XHeight _xHeight;
         private Ttf m_root;
         private Os2 m_parent;
-        public FamilyKind FamilyType { get { return this._familyType; } }
-        public SerifStyle SerifStyle { get { return this._serifStyle; } }
-        public Weight Weight { get { return this._weight; } }
-        public Proportion Proportion { get { return this._proportion; } }
-        public Contrast Contrast { get { return this._contrast; } }
-        public StrokeVariation StrokeVariation { get { return this._strokeVariation; } }
-        public ArmStyle ArmStyle { get { return this._armStyle; } }
-        public LetterForm LetterForm { get { return this._letterForm; } }
-        public Midline Midline { get { return this._midline; } }
-        public XHeight XHeight { get { return this._xHeight; } }
-        public Ttf M_Root { get { return this.m_root; } }
-        public Os2 M_Parent { get { return this.m_parent; } }
+        public FamilyKind FamilyType => this._familyType;
+        public SerifStyle SerifStyle => this._serifStyle;
+        public Weight Weight => this._weight;
+        public Proportion Proportion => this._proportion;
+        public Contrast Contrast => this._contrast;
+        public StrokeVariation StrokeVariation => this._strokeVariation;
+        public ArmStyle ArmStyle => this._armStyle;
+        public LetterForm LetterForm => this._letterForm;
+        public Midline Midline => this._midline;
+        public XHeight XHeight => this._xHeight;
+        public Ttf M_Root => this.m_root;
+        public Os2 M_Parent => this.m_parent;
     }
 }

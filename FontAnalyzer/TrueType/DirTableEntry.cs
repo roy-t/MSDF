@@ -65,7 +65,7 @@ namespace FontAnalyzer.TrueType
                     {
                         this.__raw_value = io.ReadBytes(this.Length);
                         var io___raw_value = new KaitaiStream(this.__raw_value);
-                        this._value = new Kern(io___raw_value, this, this.m_root);
+                        this._value = new Kern.Kern(io___raw_value, this, this.m_root);
                         break;
                     }
                     case "hhea":
@@ -121,7 +121,7 @@ namespace FontAnalyzer.TrueType
                     {
                         this.__raw_value = io.ReadBytes(this.Length);
                         var io___raw_value = new KaitaiStream(this.__raw_value);
-                        this._value = new Cmap(io___raw_value, this, this.m_root);
+                        this._value = new Cmap.Cmap(io___raw_value, this, this.m_root);
                         break;
                     }
                     default:
@@ -142,12 +142,12 @@ namespace FontAnalyzer.TrueType
         private Ttf m_root;
         private Ttf m_parent;
         private byte[] __raw_value;
-        public string Tag { get { return this._tag; } }
-        public uint Checksum { get { return this._checksum; } }
-        public uint Offset { get { return this._offset; } }
-        public uint Length { get { return this._length; } }
-        public Ttf M_Root { get { return this.m_root; } }
-        public Ttf M_Parent { get { return this.m_parent; } }
-        public byte[] M_RawValue { get { return this.__raw_value; } }
+        public string Tag => this._tag;
+        public uint Checksum => this._checksum;
+        public uint Offset => this._offset;
+        public uint Length => this._length;
+        public Ttf M_Root => this.m_root;
+        public Ttf M_Parent => this.m_parent;
+        public byte[] M_RawValue => this.__raw_value;
     }
 }
