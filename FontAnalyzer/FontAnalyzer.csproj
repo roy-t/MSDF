@@ -94,6 +94,18 @@
     <Compile Include="TrueType\WeightClass.cs" />
     <Compile Include="TrueType\WidthClass.cs" />
     <Compile Include="TrueType\XHeight.cs" />
+    <Compile Include="TTF\Cmap\ByteEncodingTable.cs" />
+    <Compile Include="TTF\Cmap\CmapSubtableFormat.cs" />
+    <Compile Include="TTF\Cmap\CmapTable.cs" />
+    <Compile Include="TTF\Cmap\EncodingRecord.cs" />
+    <Compile Include="TTF\Cmap\ICmapSubtable.cs" />
+    <Compile Include="TTF\UnicodeEncoding.cs" />
+    <Compile Include="TTF\WindowsEncoding.cs" />
+    <Compile Include="TTF\Platform.cs" />
+    <Compile Include="TTF\FontReader.cs" />
+    <Compile Include="TTF\OffsetTable.cs" />
+    <Compile Include="TTF\TableRecordEntry.cs" />
+    <Compile Include="TTF\TrueTypeFont.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

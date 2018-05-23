@@ -3,6 +3,7 @@ using System.Linq;
 using FontAnalyzer.TrueType;
 using FontAnalyzer.TrueType.Cmap;
 using FontAnalyzer.TrueType.Kern;
+using FontAnalyzer.TTF;
 
 namespace FontAnalyzer
 {
@@ -14,6 +15,8 @@ namespace FontAnalyzer
         public KerningCalculator(string fontPath)
         {
             var ttf = Ttf.FromFile(fontPath);
+
+            var ttf2 = TrueTypeFont.FromFile(fontPath);
 
             var cmapDir = ttf.DirectoryTable.First(x => string.Equals(
                 x.Tag,

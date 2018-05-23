@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using FontAnalyzer;
 using FontExtension;
 using Kaitai;
 using Microsoft.Xna.Framework;
@@ -50,7 +51,9 @@ namespace MonoMSDF
             this.font = this.Content.Load<FieldFont>("arial");
 
             this.glyphs = new List<FieldGlyph>();
-            this.textures = new List<Texture2D>();           
+            this.textures = new List<Texture2D>();
+
+            var foo = new KerningCalculator(this.font.Name);
 
             PrepareGlyph('A');
        }

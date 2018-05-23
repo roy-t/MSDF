@@ -25,6 +25,8 @@ namespace FontAnalyzer.TrueType.Cmap
             this._platformId = this.m_io.ReadU2be();
             this._encodingId = this.m_io.ReadU2be();
             this._subtableOffset = this.m_io.ReadU4be();
+
+            var t = Table;
         }
 
         private bool f_table;
