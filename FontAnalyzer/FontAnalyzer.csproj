@@ -103,6 +103,8 @@
     <Compile Include="TTF\Cmap\SegmentMappingToDeltaValuesTable.cs" />
     <Compile Include="TTF\Cmap\SequentialMapGroup.cs" />
     <Compile Include="TTF\Cmap\TrimmedTableMappingTable.cs" />
+    <Compile Include="TTF\Name\NameRecord.cs" />
+    <Compile Include="TTF\Name\NameTable.cs" />
     <Compile Include="TTF\UnicodeEncoding.cs" />
     <Compile Include="TTF\WindowsEncoding.cs" />
     <Compile Include="TTF\Platform.cs" />
@@ -114,5 +116,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

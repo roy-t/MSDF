@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using System.Text;
 
 namespace FontAnalyzer.TTF
 {   
@@ -50,8 +51,21 @@ namespace FontAnalyzer.TTF
         public string ReadAscii(int length)
         {            
             var bytes = this.ReadBytes(length);
-            return new string(bytes.Select(b => (char) b).ToArray(), 0, length);
+            return new string(bytes.Select(b => (char) b).ToArray(), 0, length).Replace("\0", string.Empty);
         }
+
+        public string ReadBigEndianUnicode(int length)
+        {
+            var bytes = ReadBytes(length);
+            return Encoding.BigEndianUnicode.GetString(bytes).Replace("\0", string.Empty);
+        }
+
+        public string ReadUTF8(int length)
+        {
+            var bytes = ReadBytes(length);
+            return Encoding.UTF8.GetString(bytes).Replace("\0", string.Empty);
+        }        
+
 
         /// <summary>
         /// Reads a 32 bit signed fixed point number (16.16)        
