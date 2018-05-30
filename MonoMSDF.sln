@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FontExtension", "FontExtens
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FontAnalyzer", "FontAnalyzer\FontAnalyzer.csproj", "{E63A4772-4160-4E25-B626-F7C8E3AA7C64}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FontAnalyzer.Tests", "FontAnalyzer.Tests\FontAnalyzer.Tests.csproj", "{65A994AC-2125-452E-B31C-45390A7961A1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,14 @@ Global
 		{E63A4772-4160-4E25-B626-F7C8E3AA7C64}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E63A4772-4160-4E25-B626-F7C8E3AA7C64}.Release|x86.ActiveCfg = Release|Any CPU
 		{E63A4772-4160-4E25-B626-F7C8E3AA7C64}.Release|x86.Build.0 = Release|Any CPU
+		{65A994AC-2125-452E-B31C-45390A7961A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65A994AC-2125-452E-B31C-45390A7961A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65A994AC-2125-452E-B31C-45390A7961A1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{65A994AC-2125-452E-B31C-45390A7961A1}.Debug|x86.Build.0 = Debug|Any CPU
+		{65A994AC-2125-452E-B31C-45390A7961A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65A994AC-2125-452E-B31C-45390A7961A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65A994AC-2125-452E-B31C-45390A7961A1}.Release|x86.ActiveCfg = Release|Any CPU
+		{65A994AC-2125-452E-B31C-45390A7961A1}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

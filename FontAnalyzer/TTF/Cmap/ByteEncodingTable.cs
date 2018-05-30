@@ -4,9 +4,15 @@
     {
         public static ByteEncodingTable FromReader(FontReader reader)
         {
-            var length = reader.ReadUInt16BigEndian();
+            var format   = reader.ReadUInt16BigEndian();
+            var length   = reader.ReadUInt16BigEndian();
             var language = reader.ReadUInt16BigEndian();
-            var ids = new byte[256];
+            var ids      = new byte[256];
+
+            for (var i = 0; i < ids.Length; i++)
+            {
+                ids[i] = reader.ReadByte();
+            }
 
             return new ByteEncodingTable(length, language, ids);
         }        
@@ -22,7 +28,7 @@
         public ushort Language { get; }
         public byte[] Ids { get; }
 
-        public ushort GetGlyphIndex(char c)
+        public uint GetGlyphIndex(char c)
         {            
             var charCode = (int) c;
             if (c >= 0 && c < this.Ids.Length)

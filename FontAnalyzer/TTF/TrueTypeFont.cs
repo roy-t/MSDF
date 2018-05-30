@@ -13,17 +13,40 @@ namespace FontAnalyzer.TTF
             using (var reader = new FontReader(File.OpenRead(path)))
             {
                 var offsetTable = OffsetTable.FromReader(reader);
-                var entries = new Dictionary<string, TableRecordEntry>(offsetTable.Tables);
-                for (var i = 0; i < offsetTable.Tables; i++)
-                {
-                    var entry = TableRecordEntry.FromReader(reader);
-                    entries.Add(entry.Tag, entry);
-                }
-                
+                var entries = ReadTableRecords(reader, offsetTable);
+
                 var cmap = ReadCmapTable(path, reader, entries);
 
-                return new TrueTypeFont(offsetTable, entries, cmap);
+                return new TrueTypeFont(path, offsetTable, entries, cmap);
             }
+        }
+      
+        public static bool TryGetTablePosition(FontReader reader, string tableName, out long offset)
+        {
+            reader.Seek(0);
+            var offsetTable = OffsetTable.FromReader(reader);
+            var entries = ReadTableRecords(reader, offsetTable);
+
+            if (entries.TryGetValue(tableName, out var cmapEntry))
+            {
+                offset = cmapEntry.Offset;
+                return true;
+            }
+
+            offset = 0;
+            return false;
+        }
+
+        private static Dictionary<string, TableRecordEntry> ReadTableRecords(FontReader reader, OffsetTable offsetTable)
+        {
+            var entries = new Dictionary<string, TableRecordEntry>(offsetTable.Tables);
+            for (var i = 0; i < offsetTable.Tables; i++)
+            {
+                var entry = TableRecordEntry.FromReader(reader);
+                entries.Add(entry.Tag, entry);
+            }
+
+            return entries;
         }
 
         private static CmapTable ReadCmapTable(string path, FontReader reader, Dictionary<string, TableRecordEntry> entries)
@@ -40,15 +63,19 @@ namespace FontAnalyzer.TTF
 
         }
 
-        private TrueTypeFont(OffsetTable offsetTable, IReadOnlyDictionary<string, TableRecordEntry> entries, CmapTable cmapTable)
-        {            
+        private TrueTypeFont(string source, OffsetTable offsetTable, IReadOnlyDictionary<string, TableRecordEntry> entries, CmapTable cmapTable)
+        {
+            this.Source = source;
             this.OffsetTable = offsetTable;
             this.TableRecordEntries = entries;
             this.CmapTable = cmapTable;
         }
 
+        public string Source { get; }
         public OffsetTable OffsetTable { get; }
         public IReadOnlyDictionary<string, TableRecordEntry> TableRecordEntries { get; }
         public CmapTable CmapTable { get; }
+
+        public override string ToString() => this.Source;
     }
 }

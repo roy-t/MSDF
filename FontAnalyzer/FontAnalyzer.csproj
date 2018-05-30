@@ -99,6 +99,10 @@
     <Compile Include="TTF\Cmap\CmapTable.cs" />
     <Compile Include="TTF\Cmap\EncodingRecord.cs" />
     <Compile Include="TTF\Cmap\ICmapSubtable.cs" />
+    <Compile Include="TTF\Cmap\SegmentedCoverageTable.cs" />
+    <Compile Include="TTF\Cmap\SegmentMappingToDeltaValuesTable.cs" />
+    <Compile Include="TTF\Cmap\SequentialMapGroup.cs" />
+    <Compile Include="TTF\Cmap\TrimmedTableMappingTable.cs" />
     <Compile Include="TTF\UnicodeEncoding.cs" />
     <Compile Include="TTF\WindowsEncoding.cs" />
     <Compile Include="TTF\Platform.cs" />

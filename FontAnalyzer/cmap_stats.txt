@@ -1,0 +1,12 @@
+Cmap Subtable types used by fonts in C:\Windows\Fonts
+
+SegmentMappingToDeltaValues     374
+TrimmedTableMapping             128
+SegmentedCoverage               99
+ByteEncodingTable               42
+UnicodeVarationSequences        17
+
+HighByteMappingThroughTable     0
+MixedCoverage                   0
+TrimmedArray                    0
+ManyToOneRangeMappings          0

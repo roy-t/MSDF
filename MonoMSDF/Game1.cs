@@ -54,6 +54,7 @@ namespace MonoMSDF
             this.textures = new List<Texture2D>();
 
             var foo = new KerningCalculator(this.font.Name);
+            foo.GetKerning('A', 'W');
 
             PrepareGlyph('A');
        }

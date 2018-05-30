@@ -37,5 +37,7 @@ namespace FontAnalyzer.TTF
         public ushort SearchRange { get; }
         public ushort EntrySelector { get; }
         public ushort RangeShift { get; }
+
+        public override string ToString() => $"Tables: {this.Tables}";        
     }
 }

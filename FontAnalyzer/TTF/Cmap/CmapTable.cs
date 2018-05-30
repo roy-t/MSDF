@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace FontAnalyzer.TTF.Cmap
 {
@@ -23,7 +24,23 @@ namespace FontAnalyzer.TTF.Cmap
             }
 
             return new CmapTable(version, encodingRecords);
-        }        
+        }
+
+        public static bool TryGetSubTablePosition(FontReader reader, CMapSubtableFormat format, out long offset)
+        {
+            var cmapTable = FromReader(reader);
+            var entry = cmapTable.EncodingRecords.FirstOrDefault(
+                e => e.Format == format);
+
+            if (entry != null)
+            {
+                offset = entry.Offset;
+                return true;
+            }
+
+            offset = 0;
+            return false;
+        }
 
         private CmapTable(ushort version, IReadOnlyList<EncodingRecord> encodingRecords)
         {

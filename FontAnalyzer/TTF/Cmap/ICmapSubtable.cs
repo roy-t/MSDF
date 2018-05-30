@@ -2,6 +2,6 @@
 {
     public interface ICmapSubtable
     {
-        ushort GetGlyphIndex(char c);
+        uint GetGlyphIndex(char c);
     }
 }
