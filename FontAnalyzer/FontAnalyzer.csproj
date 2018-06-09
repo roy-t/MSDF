@@ -103,6 +103,8 @@
     <Compile Include="TTF\Cmap\SegmentMappingToDeltaValuesTable.cs" />
     <Compile Include="TTF\Cmap\SequentialMapGroup.cs" />
     <Compile Include="TTF\Cmap\TrimmedTableMappingTable.cs" />
+    <Compile Include="TTF\Name\LanguageIdConverter.cs" />
+    <Compile Include="TTF\Name\NameId.cs" />
     <Compile Include="TTF\Name\NameRecord.cs" />
     <Compile Include="TTF\Name\NameTable.cs" />
     <Compile Include="TTF\UnicodeEncoding.cs" />
