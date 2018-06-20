@@ -3,10 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
-using FontAnalyzer;
-using Kaitai;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content.Pipeline;
 
@@ -133,13 +130,14 @@ namespace FontExtension
         {
             var pairs = new List<KerningPair>();
 
-            var kerningCalculator = new KerningCalculator(path);
+            var font = RoyT.TrueType.TrueTypeFont.FromFile(path);
 
             foreach (var left in characters)
             {
                 foreach (var right in characters)
                 {
-                    var kerning = kerningCalculator.GetKerning(left, right);                    
+                    var kerning = RoyT.TrueType.Helpers.KerningHelper.GetHorizontalKerning(left, right, 1.0f, font);
+                    //var kerning = kerningCalculator.GetKerning(left, right);                    
                     if (kerning > 0 || kerning < 0)
                     {
                         // Scale the kerning the same as MSDFGEN scales the advance

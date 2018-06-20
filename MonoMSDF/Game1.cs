@@ -1,9 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using FontAnalyzer;
 using FontExtension;
-using Kaitai;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -52,10 +50,7 @@ namespace MonoMSDF
 
             this.glyphs = new List<FieldGlyph>();
             this.textures = new List<Texture2D>();
-
-            var foo = new KerningCalculator(this.font.Name);
-            foo.GetKerning('A', 'W');
-
+            
             PrepareGlyph('A');
        }
 
@@ -156,7 +151,7 @@ namespace MonoMSDF
 
                 pen.X += glyph.Metrics.Advance * this.scale;
 
-                if (i < this.glyphs.Count - 1 && Keyboard.GetState().IsKeyDown(Keys.Tab))
+                if (i < this.glyphs.Count - 1 && !Keyboard.GetState().IsKeyDown(Keys.Tab))
                 {
                     var next = this.glyphs[i + 1];
 
