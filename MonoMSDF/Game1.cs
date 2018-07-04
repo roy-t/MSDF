@@ -46,7 +46,7 @@ namespace MonoMSDF
 
         protected override void Draw(GameTime gameTime)
         {
-            this.GraphicsDevice.Clear(Color.CornflowerBlue);
+            this.GraphicsDevice.Clear(Color.Black);
 
             this.GraphicsDevice.BlendState = BlendState.AlphaBlend;
             this.GraphicsDevice.DepthStencilState = DepthStencilState.None;
@@ -54,7 +54,8 @@ namespace MonoMSDF
 
             var viewport = this.GraphicsDevice.Viewport;
 
-            var world = Matrix.CreateScale(0.01f) *  Matrix.CreateRotationY((float)gameTime.TotalGameTime.TotalSeconds);
+            //var world = Matrix.CreateScale(0.01f) *  Matrix.CreateRotationY((float)gameTime.TotalGameTime.TotalSeconds);
+            var world = Matrix.CreateScale(0.01f) * Matrix.Identity;
             var view = Matrix.CreateLookAt(Vector3.Backward , Vector3.Forward, Vector3.Up);
             var projection = Matrix.CreatePerspectiveFieldOfView(
                 MathHelper.PiOver2,
@@ -64,7 +65,20 @@ namespace MonoMSDF
 
             var wvp = world * view * projection;
 
-            this.textRenderer.Render("To infinity→and beyond!", wvp);
+            this.textRenderer.Render("→~!435&^%$", wvp);
+            
+
+            world = Matrix.CreateScale(0.01f) *  Matrix.CreateRotationY((float)gameTime.TotalGameTime.TotalSeconds) * Matrix.CreateRotationZ(MathHelper.PiOver4);            
+            view = Matrix.CreateLookAt(Vector3.Backward, Vector3.Forward, Vector3.Up);
+            projection = Matrix.CreatePerspectiveFieldOfView(
+                MathHelper.PiOver2,
+                viewport.Width / (float)viewport.Height,
+                0.01f,
+                1000.0f);
+
+            wvp = world * view * projection;
+
+            this.textRenderer.Render("          To Infinity And Beyond!", wvp);
         }
     }
 }
