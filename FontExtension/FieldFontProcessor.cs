@@ -6,6 +6,7 @@ using System.IO;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content.Pipeline;
+using RoyT.TrueType.Helpers;
 
 namespace FontExtension
 {
@@ -39,29 +40,28 @@ namespace FontExtension
             {
                 var glyphs = new FieldGlyph[input.Characters.Count];
 
-                Process('p', input, msdfgen, objPath);
-
+                // Generate a distance field for each character using msdfgen
                 Parallel.For(
                     0,
                     input.Characters.Count,
                     i =>
                     {
                         var c = input.Characters[i];
-                        glyphs[i] = Process(c, input, msdfgen, objPath);                                               
+                        glyphs[i] = CreateFieldGlyphForCharacter(c, input, msdfgen, objPath);                                               
                     });
-
+                
                 var kerning = ReadKerningInformation(input.Path, input.Characters);                               
                 return new FieldFont(input.Path, glyphs, kerning, this.Range);
             }
 
             throw new FileNotFoundException(
-                "Could not find path to msdfgen.exe, check your processor parameters",
+                "Could not find msdfgen. Check your content processor parameters",
                 msdfgen);
         }
 
-        private FieldGlyph Process(char c, FontDescription input, string msdfgen, string objPath)
+        private FieldGlyph CreateFieldGlyphForCharacter(char c, FontDescription input, string msdfgen, string objPath)
         {            
-            var metrics = ProcessCharacter(input, msdfgen, objPath, c);
+            var metrics = CreateDistanceFieldForCharacter(input, msdfgen, objPath, c);
             var path = GetOuputPath(objPath, input, c);
             var bytes = File.ReadAllBytes(path);
             var glyph = new FieldGlyph(c, bytes, metrics);
@@ -69,7 +69,7 @@ namespace FontExtension
             return glyph;
         }    
 
-        private Metrics ProcessCharacter(FontDescription font, string msdfgen, string objPath, char c)
+        private Metrics CreateDistanceFieldForCharacter(FontDescription font, string msdfgen, string objPath, char c)
         {
             var outputPath = GetOuputPath(objPath, font, c);
             var startInfo = new ProcessStartInfo(msdfgen)
@@ -136,11 +136,10 @@ namespace FontExtension
             {
                 foreach (var right in characters)
                 {
-                    var kerning = RoyT.TrueType.Helpers.KerningHelper.GetHorizontalKerning(left, right, 1.0f, font);
-                    //var kerning = kerningCalculator.GetKerning(left, right);                    
+                    var kerning = KerningHelper.GetHorizontalKerning(left, right, font);                          
                     if (kerning > 0 || kerning < 0)
                     {
-                        // Scale the kerning the same as MSDFGEN scales the advance
+                        // Scale the kerning by the same factor MSDFGEN scales it
                         pairs.Add(new KerningPair(left, right, kerning / 64.0f));
                     }
                 }

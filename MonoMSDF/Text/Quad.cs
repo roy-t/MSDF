@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace FontExtension
+namespace MonoMSDF.Text
 {
     public sealed class Quad
     {

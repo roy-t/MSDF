@@ -29,13 +29,30 @@ namespace FontExtension
             }
         }
 
+        /// <summary>
+        /// Name of the font
+        /// </summary>
         public string Name => this.NameBackend;
+        
+        /// <summary>
+        /// Distance field effect range in pixels
+        /// </summary>
         public float PxRange => this.PxRangeBackend;
+
+        /// <summary>
+        /// Kerning pairs available in this font
+        /// </summary>
         public IReadOnlyList<KerningPair> KerningPairs => this.KerningPairsBackend;
 
+        /// <summary>
+        /// Characters supported by this font
+        /// </summary>
         [ContentSerializerIgnore]
         public IEnumerable<char> SupportedCharacters => this.Glyphs.Keys;
        
+        /// <summary>
+        /// Returns the glyph for the given character, or throws an exception when the glyph is not supported by this font
+        /// </summary>        
         public FieldGlyph GetGlyph(char c)
         {
             if (this.Glyphs.TryGetValue(c, out FieldGlyph glyph))

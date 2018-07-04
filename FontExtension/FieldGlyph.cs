@@ -20,8 +20,17 @@ namespace FontExtension
             this.MetricsBackend = metrics;
         }
         
+        /// <summary>
+        /// The character this glyph represents
+        /// </summary>
         public char Character => this.CharacterBackend;
+        /// <summary>
+        /// Distance field for this character
+        /// </summary>
         public byte[] Bitmap => this.BitmapBackend;                
+        /// <summary>
+        /// Metrics for this character
+        /// </summary>
         public Metrics Metrics => this.MetricsBackend;
     }
 }

@@ -47,8 +47,8 @@
     <Reference Include="MonoGame.Framework.Content.Pipeline">
       <HintPath>C:\Program Files (x86)\MSBuild\MonoGame\v3.0\Tools\MonoGame.Framework.Content.Pipeline.dll</HintPath>
     </Reference>
-    <Reference Include="RoyT.TrueType, Version=0.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\RoyT.TrueType.0.1.0\lib\netstandard1.6\RoyT.TrueType.dll</HintPath>
+    <Reference Include="RoyT.TrueType, Version=0.0.1.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RoyT.TrueType.0.1.1\lib\netstandard1.6\RoyT.TrueType.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.AppContext, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -143,7 +143,6 @@
     <Compile Include="KerningPair.cs" />
     <Compile Include="Metrics.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Quad.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

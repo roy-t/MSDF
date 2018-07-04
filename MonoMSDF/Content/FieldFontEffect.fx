@@ -1,6 +1,8 @@
 ﻿#define VS_SHADERMODEL vs_5_0
 #define PS_SHADERMODEL ps_5_0
 
+// Mix of the enhanced shader from https://discourse.libcinder.org/t/cinder-sdftext-initial-release-wip/171/13 and the original msdf shader
+
 
 matrix WorldViewProjection;
 float2 TextureSize;
@@ -71,7 +73,7 @@ float4 MainPS(VertexShaderOutput input) : COLOR
 	float2 gradDist = SafeNormalize(float2(ddx(sigDist), ddy(sigDist)));
 	float2 grad = float2(gradDist.x * Jdx.x + gradDist.y * Jdy.x, gradDist.x * Jdx.y + gradDist.y * Jdy.y);
 
-	// Apply anit-aliasing
+	// Apply anti-aliasing
 	const float thickness = 0.125f;
 	const float normalization = thickness * 0.5f * sqrt(2.0f);
 
@@ -88,16 +90,7 @@ float4 MainPS(VertexShaderOutput input) : COLOR
 }
 
 float4 AltPS(VertexShaderOutput input) : COLOR
-{
-	/*if (input.TexCoord.x < 0.05f ||
-		input.TexCoord.x > 0.95f ||
-		input.TexCoord.y < 0.05f ||
-		input.TexCoord.y > 0.95f)
-	{
-		return float4(0, 0, 0, 1);
-	}*/
-
-
+{	
 	float2 msdfUnit = PxRange / TextureSize;
 	float3 samp = tex2D(glyphSampler, input.TexCoord).rgb;
 
@@ -108,12 +101,20 @@ float4 AltPS(VertexShaderOutput input) : COLOR
 	return ForegroundColor * opacity;
 }
 
-technique BasicColorDrawing
+technique SmallText
 {
 	pass P0
 	{
 		VertexShader = compile VS_SHADERMODEL MainVS();
-		//PixelShader = compile PS_SHADERMODEL MainPS();
+		PixelShader = compile PS_SHADERMODEL MainPS();		
+	}
+};
+
+technique LargeText
+{
+	pass P0
+	{
+		VertexShader = compile VS_SHADERMODEL MainVS();		
 		PixelShader = compile PS_SHADERMODEL AltPS();
 	}
 };
