@@ -1,7 +1,8 @@
 # MSDF
 A signed distance field font sample for monogame.
 
-![Sample](gallery.png?raw=true)
+https://raw.githubusercontent.com/roy-t/MSDF/master/gallery.PNG
+![Sample](gallery.png?raw=true "Sample")
 
 This sample shows how you can integrate [msdfgen](https://github.com/Chlumsky/msdfgen) into your content pipeline to generated signed distance field fonts, and how to correctly render these fonts. Including correct kerning courtesy of my [TrueType library](https://github.com/roy-t/TrueType). 
 
