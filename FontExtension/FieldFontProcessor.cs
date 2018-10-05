@@ -97,8 +97,8 @@ namespace FontExtension
 
             foreach (var line in output.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries))
             {
-                ParseLine(line, "advance = ", float.Parse, ref advance);
-                ParseLine(line, "scale = ", float.Parse, ref scale);
+                ParseLine(line, "advance = ", FloatHelper.ParseInvariant, ref advance);
+                ParseLine(line, "scale = ", FloatHelper.ParseInvariant, ref scale);
                 ParseLine(line, "translate = ", ParseVector2, ref translation);
             }
 
@@ -114,7 +114,7 @@ namespace FontExtension
         private static Vector2 ParseVector2(string text)
         {
             var args = text.Split(',');
-            return new Vector2(float.Parse(args[0]), float.Parse(args[1]));
+            return new Vector2(FloatHelper.ParseInvariant(args[0]), FloatHelper.ParseInvariant(args[1]));
         }
         
         private static void ParseLine<T>(string line, string match, Func<string ,T> resultParser, ref T result)
